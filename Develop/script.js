@@ -8,48 +8,53 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
+const charType = ["numeric","specialCharacters","uppercaseCharacters","lowercaseCharacters"]
+
 // created function to generate a random password
 function generatePassword() {
-  var passwordLength = parseInt(prompt("Please enter a password length."))
-  var includeNumber = confirm("Would you like numbers to be included?") 
-  var includeSpecial = confirm("Would you like special characters to be included?")
-  var includeUppercase = confirm("Would you like uppercase characters to be included?")
-  var includeLowercase = confirm("Would you like lowercase characters to be included?")
+  var passwordLength = parseInt(prompt("Please enter a password length."));
+  var includeNumber = confirm("Would you like numbers to be included?"); 
+  var includeSpecial = confirm("Would you like special characters to be included?");
+  var includeUppercase = confirm("Would you like uppercase characters to be included?");
+  var includeLowercase = confirm("Would you like lowercase characters to be included?");
 
+   if (passwordLength < 8 || passwordLength > 128) {
+    alert("Password must be between 8 and 128 characters.")
+    return null
+  }
 
+  if(!includeLowercase && !includeUppercase && !includeSpecial && !includeNumber) {
+    alert("Password must have at least one set of characters!")
+    return null
+  }
 
   if (includeNumber) {
     password.push(numeric)
-  }else if (!includeNumber){
-
   }
-
   if (includeSpecial) {
     password.push(specialCharacters)
-  }else if (!includeSpecial) {
-
   }
 
   if (includesUppercase) {
     password.push(uppercaseCharacters)
-  }else if (!includeUppercase) {
-
   }
-
   if (includesLowercase) {
     password.push(lowercaseCharacters)
-  }else if (!includeLowercase) {
-
   }
 
-  if (passwordLength < 8) {
-    alert("Please enter a password that's at least 8 chracters.")
-    console.log(passwordLength)
-  }else if (passwordLength > 128) {
-    alert("Please enter a password that's fewer than 128 characters.")
-    console.log(passwordLength)
-  }
-console.log(password)
+  for (var i = 0; i < passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * selectType.length - 0) +0;
+   }
+  
+  var pw = password.join("")
+  console.log(pw)
+  return pw
+}
+
+for (let i=0; i < passwordLength; i++) {
+  var selectType = charType[Math.floor(Math.random()=selectType.length)]
+  password = password.concat(selectType)
+  generatePassword()
 }
 
 // Write password to the #password input
@@ -61,6 +66,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 
 // 1) create variables to save user input from prompts
 //    -passwordLength (string into integer?)
