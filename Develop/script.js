@@ -16,6 +16,8 @@ function generatePassword() {
   var includeUppercase = confirm("Would you like uppercase characters to be included?")
   var includeLowercase = confirm("Would you like lowercase characters to be included?")
 
+
+
   if (includeNumber) {
     password.push(numeric)
   }else if (!includeNumber){
@@ -24,14 +26,28 @@ function generatePassword() {
 
   if (includeSpecial) {
     password.push(specialCharacters)
+  }else if (!includeSpecial) {
+
   }
 
   if (includesUppercase) {
     password.push(uppercaseCharacters)
+  }else if (!includeUppercase) {
+
   }
 
   if (includesLowercase) {
     password.push(lowercaseCharacters)
+  }else if (!includeLowercase) {
+
+  }
+
+  if (passwordLength < 8) {
+    alert("Please enter a password that's at least 8 chracters.")
+    console.log(passwordLength)
+  }else if (passwordLength > 128) {
+    alert("Please enter a password that's fewer than 128 characters.")
+    console.log(passwordLength)
   }
 console.log(password)
 }
@@ -45,14 +61,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-if (passwordLength < 8) {
-  alert("Please enter a password that's at least 8 chracters.")
-  console.log(passwordLength)
-}else if (passwordLength > 128) {
-  alert("Please enter a password that's fewer than 128 characters.")
-  console.log(passwordLength)
-}
 
 // 1) create variables to save user input from prompts
 //    -passwordLength (string into integer?)
