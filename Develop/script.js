@@ -2,17 +2,29 @@
 var generateBtn = document.querySelector("#generate");
 
 // added variable arrays for user prompts
-
-var passwordLength = parseInt()
+var password = []
 var numeric = ["0","1","2","3","4","5","6","7","8","9"]
 var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
+// created function to generate a random password
 function generatePassword() {
-  var allCharacters = [numeric, specialCharacters, uppercaseCharacters, lowercaseCharacters]
-  allCharacters[0]
-  console.log(allCharacters)
+  var passwordLength = parseInt(prompt("Please enter a password length."))
+  var includeNumber = confirm("Would you like numbers to be included?") 
+  // var includeSpecial = 
+  // var includeUppercase = 
+  // var includeLowercase = 
+
+  if (includeNumber) {
+    password.push(numeric)
+  }
+
+  if (includeSpecial) {
+    password.push(specialCharacters)
+  }
+
+console.log(password)
 }
 
 // Write password to the #password input
@@ -40,11 +52,11 @@ if (passwordLength < 8) {
 //    -uppercaseCharacters (boolean)
 //    -lowercaseCharacters (boolean)
 //    -alert, confirm, prompt
-//    --use conditionals to validate inputs (min characters 8, max characters 128, no inputs)
+//    --use conditionals to validate inputs (min characters 8, max characters 128)
 //    --"if array is true, push at least one character, if false, don't push character"
 //    --start with one variable, copy paste format for rest
 
-// 2) create an arrays for each type of password character
+// 2) create arrays for each type of password character
 //    -specialCharacters, uppercase, lowercase, numeric
 
 // 3) use randomizer function to select characters from each array 
