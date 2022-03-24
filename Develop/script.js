@@ -12,18 +12,27 @@ var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"
 function generatePassword() {
   var passwordLength = parseInt(prompt("Please enter a password length."))
   var includeNumber = confirm("Would you like numbers to be included?") 
-  // var includeSpecial = 
-  // var includeUppercase = 
-  // var includeLowercase = 
+  var includeSpecial = confirm("Would you like special characters to be included?")
+  var includeUppercase = confirm("Would you like uppercase characters to be included?")
+  var includeLowercase = confirm("Would you like lowercase characters to be included?")
 
   if (includeNumber) {
     password.push(numeric)
+  }else if (!includeNumber){
+
   }
 
   if (includeSpecial) {
     password.push(specialCharacters)
   }
 
+  if (includesUppercase) {
+    password.push(uppercaseCharacters)
+  }
+
+  if (includesLowercase) {
+    password.push(lowercaseCharacters)
+  }
 console.log(password)
 }
 
