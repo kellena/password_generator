@@ -5,12 +5,14 @@ var generateBtn = document.querySelector("#generate");
 
 var passwordLength = parseInt()
 var numeric = ["0","1","2","3","4","5","6","7","8","9"]
-var specialCharacters = []
+var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 function generatePassword() {
-  // return generated password
+  var allCharacters = [numeric, specialCharacters, uppercaseCharacters, lowercaseCharacters]
+  allCharacters[0]
+  console.log(allCharacters)
 }
 
 // Write password to the #password input
@@ -25,8 +27,10 @@ generateBtn.addEventListener("click", writePassword);
 
 if (passwordLength < 8) {
   alert("Please enter a password that's at least 8 chracters.")
+  console.log(passwordLength)
 }else if (passwordLength > 128) {
   alert("Please enter a password that's fewer than 128 characters.")
+  console.log(passwordLength)
 }
 
 // 1) create variables to save user input from prompts
