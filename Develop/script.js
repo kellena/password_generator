@@ -29,32 +29,32 @@ function generatePassword() {
   }
 
   if (includeNumber) {
-    password.push(numeric)
-  }
+    password.concat(numeric)
+  }else
+
   if (includeSpecial) {
-    password.push(specialCharacters)
-  }
+    password.concat(specialCharacters)
+  }else
 
   if (includesUppercase) {
-    password.push(uppercaseCharacters)
-  }
+    password.concat(uppercaseCharacters)
+  }else
+
   if (includesLowercase) {
-    password.push(lowercaseCharacters)
+    password.concat(lowercaseCharacters)
   }
+  console.log(password)
+
+  var arr1 = []
 
   for (var i = 0; i < passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * selectType.length - 0) +0;
+    var randomNumber = Math.floor(Math.random() * passwordLength.length - 0) +0;
+    arr1.push(randomNumber)
    }
   
-  var pw = password.join("")
+  var pw = arr1.join("")
   console.log(pw)
   return pw
-}
-
-for (let i=0; i < passwordLength; i++) {
-  var selectType = charType[Math.floor(Math.random()=selectType.length)]
-  password = password.concat(selectType)
-  generatePassword()
 }
 
 // Write password to the #password input
