@@ -10,8 +10,6 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-const charType = ["numeric","specialCharacters","uppercaseCharacters","lowercaseCharacters"]
-
 // created function to generate a random password
 function generatePassword() {
   var passwordLength
@@ -74,17 +72,16 @@ function generatePassword() {
   } else if (includeLowercase) {
     charChoices = lowercaseCharacters
   }
-  
-  console.log(password)
 
-  var arr1 = []
+  console.log(charChoices)
 
-  for (var i = 0; i < password; i++) {
-    var randomNumber = password[Math.floor(Math.random() * password.length)];
-    arr1.push(randomNumber);
+  // for loop executing random number (changed to full array from empty "password" array)
+  for (var i = 1; i <= passwordLength; i++) {
+    var randomNumber = charChoices[Math.floor(Math.random() * charChoices.length)];
+    password.push(randomNumber);
    }
   
-  var pw = arr1.join("")
+  var pw = password.join("")
   console.log(pw)
   return pw
 }
