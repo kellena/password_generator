@@ -3,7 +3,8 @@ var generateBtn = document.querySelector("#generate");
 
 // added variable arrays for user prompts
 var password = []
-var selectedCharacters
+// declared charChoices in global scope to be concated upon
+var charChoices 
 var numeric = ["0","1","2","3","4","5","6","7","8","9"]
 var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -33,28 +34,47 @@ function generatePassword() {
   }
 
   // if all are included
-  if()
+  else if (includeNumber && includeSpecial && includeUppercase && includeLowercase) {
+    charChoices = numeric.concat(specialCharacters, uppercaseCharacters, lowercaseCharacters)
+  }
+
   // if three are included
+  else if (includeNumber && includeSpecial && includeUppercase && !includeLowercase) {
+    charChoices = numeric.concat(specialCharacters, uppercaseCharacters);
+  } else if (includeNumber && includeSpecial && !includeUppercase && includeLowercase) {
+    charChoices = numeric.concat(specialCharacters, lowercaseCharacters);
+  } else if (includeNumber && !includeSpecial && includeUppercase && includeLowercase) {
+    charChoices = numeric.concat(uppercaseCharacters, lowercaseCharacters);
+  } else if (!includeNumber && includeSpecial && includeUppercase && includeLowercase) {
+    charChoices = specialCharacters.concat(uppercaseCharacters, lowercaseCharacters);
+  }
 
   // if two are included
+  else if (includeNumber && includeSpecial && !includeUppercase && !includeLowercase) {
+    charChoices = numeric.concat(specialCharacters);
+  } else if (includeNumber && !includeSpecial && !includeUppercase && includeLowercase) {
+    charChoices = numeric.concat(lowercaseCharacters);
+  } else if (includeNumber && !includeSpecial && includeUppercase && !includeLowercase) {
+    charChoices = numeric.concat(uppercaseCharacters);
+  } else if (!includeNumber && includeSpecial && !includeUppercase && includeLowercase) {
+    charChoices = specialCharacters.concat(lowercaseCharacters);
+  } else if (!includeNumber && includeSpecial && includeUppercase && !includeLowercase) {
+    charChoices = specialCharacters.concat(uppercaseCharacters);
+  } else if (!includeNumber && !includeSpecial && includeUppercase && includeLowercase) {
+    charChoices = uppercaseCharacters.concat(lowercaseCharacters);
+  }
 
   // if one is included
-
-  if (includeNumber) {
-    password = numeric
-  }else
-
-  if (includeSpecial) {
-    password = specialCharacters
-  }else
-
-  if (includeUppercase) {
-    password.concat(uppercaseCharacters)
-  }else
-
-  if (includeLowercase) {
-    password.concat(lowercaseCharacters)
+  else if (includeNumber) {
+    charChoices = numeric;
+  } else if (includeSpecial) {
+    charChoices = specialCharacters
+  } else if (includeUppercase) {
+    charChoices = uppercaseCharacters
+  } else if (includeLowercase) {
+    charChoices = lowercaseCharacters
   }
+  
   console.log(password)
 
   var arr1 = []
