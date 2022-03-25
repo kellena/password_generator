@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // added variable arrays for user prompts
 var password = []
+var selectedCharacters
 var numeric = ["0","1","2","3","4","5","6","7","8","9"]
 var specialCharacters = ["!","@","#","$","%","^","&","*","(",")"]
 var uppercaseCharacters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -12,7 +13,9 @@ const charType = ["numeric","specialCharacters","uppercaseCharacters","lowercase
 
 // created function to generate a random password
 function generatePassword() {
-  var passwordLength = parseInt(prompt("Please enter a password length."));
+  var passwordLength
+  passwordLength = prompt("Please enter a password length.")
+  var lengthNumber = parseInt(passwordLength)
   var includeNumber = confirm("Would you like numbers to be included?"); 
   var includeSpecial = confirm("Would you like special characters to be included?");
   var includeUppercase = confirm("Would you like uppercase characters to be included?");
@@ -23,33 +26,42 @@ function generatePassword() {
     return null
   }
 
+  // if all are not included
   if(!includeLowercase && !includeUppercase && !includeSpecial && !includeNumber) {
     alert("Password must have at least one set of characters!")
     return null
   }
 
+  // if all are included
+  if()
+  // if three are included
+
+  // if two are included
+
+  // if one is included
+
   if (includeNumber) {
-    password.concat(numeric)
+    password = numeric
   }else
 
   if (includeSpecial) {
-    password.concat(specialCharacters)
+    password = specialCharacters
   }else
 
-  if (includesUppercase) {
+  if (includeUppercase) {
     password.concat(uppercaseCharacters)
   }else
 
-  if (includesLowercase) {
+  if (includeLowercase) {
     password.concat(lowercaseCharacters)
   }
   console.log(password)
 
   var arr1 = []
 
-  for (var i = 0; i < passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * passwordLength.length - 0) +0;
-    arr1.push(randomNumber)
+  for (var i = 0; i < password; i++) {
+    var randomNumber = password[Math.floor(Math.random() * password.length)];
+    arr1.push(randomNumber);
    }
   
   var pw = arr1.join("")
